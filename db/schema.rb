@@ -10,16 +10,16 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_05_21_004055) do
+ActiveRecord::Schema[7.0].define(version: 2022_05_21_222041) do
   create_table "carriers", force: :cascade do |t|
     t.string "corporate_name"
     t.string "brand_name"
     t.string "domain"
     t.string "registered_number"
     t.string "full_address"
-    t.integer "status", default: 0
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "status", default: 0
   end
 
 end

@@ -2,24 +2,23 @@ body {
     background-color: rgb(224, 216, 216);
 }
 
-ul {
+nav ul {
     list-style-type: none;
     margin: 0;
     padding: 0;
     overflow: hidden;
-    
 }
   
-li {
+nav ul li {
     float: left;
     border-bottom: 0.5px solid rgb(122, 122, 122);
 }
 
-li:not(:first-child) {
+nav ul li:not(:first-child) {
     margin-left: 5px;
 }
   
-li a {
+nav ul li a {
     display: block;
     color: black;
     text-align: center;
@@ -27,8 +26,7 @@ li a {
     text-decoration: none;
 }
   
-/* Change the link color to #111 (black) on hover */
-li a:hover {
+nav ul li a:hover {
     background-color: rgb(122, 122, 122);
 }
 

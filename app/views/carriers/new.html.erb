@@ -1,5 +1,14 @@
 <h2>Cadastro de Transportadora</h2>
 
+<% if @carrier.errors.any? %>
+    <p>Verifique os erros abaixo:</p>
+    <ul>
+        <% @carrier.errors.full_messages.each do |msg| %>
+            <li><%= msg %></li>
+        <% end %>
+    </ul>
+<% end %>
+
 <%= form_with model: @carrier do |form| %>
     <div>
         <%= form.label :corporate_name %>

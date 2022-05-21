@@ -33,6 +33,5 @@ describe 'Usuário registra uma nova transportadora' do
         expect(page).to have_content 'Domínio de E-mail: azul.com.br'
         expect(page).to have_content 'CNPJ: 31285361000155'
         expect(page).to have_content 'Endereço Completo: Rua sem Esquina, 402 - Maringá - PR'
-
     end
 end
