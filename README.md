@@ -1,24 +1,14 @@
 # README
+<h2>Projeto de sistemas de fretes</h2>
+  Projeto visa desafiar meus conhecimento adiquiridos na TreinaDev. Para isso estou criando o sistema proposto, como auxílio estou utilizando o railsguides, os vídeos da plataforma e google.
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Para o controle do projeto estou utilizando a área de projetos do próprio GitHub, veja o link abaixo:
+https://github.com/users/Campolino/projects/1
 
-Things you may want to cover:
+Controle de versão:
+- Ruby 3.1.1p18
+- Rails 7.0.3
+- RSpec 3.11
+- SQlite3 3.31.1
 
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+<h3>Orientações de uso</h3>
