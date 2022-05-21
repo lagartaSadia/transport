@@ -5,5 +5,6 @@ describe 'Visitante acessa a tela inicial' do
         visit root_path
 
         expect(page).to have_content 'Sistema de Frete'
+        expect(page).to have_content 'Boas vindas!'
     end
 end

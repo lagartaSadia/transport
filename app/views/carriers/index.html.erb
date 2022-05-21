@@ -1,0 +1,12 @@
+<h2>Transportadoras</h2>
+
+<% if @carriers.empty? %>
+    <p>Não há transportadoras cadastradas.</p>
+<% else %>
+    <dl>
+        <% @carriers.each do |c| %>
+            <dt><strong><%= c.corporate_name %></strong></dt>
+            <dd>Endereço: <%= c.full_address %></dd>
+        <% end %>
+    </dl>
+<% end %>
