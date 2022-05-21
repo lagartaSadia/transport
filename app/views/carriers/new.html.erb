@@ -1,0 +1,27 @@
+<h2>Cadastro de Transportadora</h2>
+
+<%= form_with model: @carrier do |form| %>
+    <div>
+        <%= form.label :corporate_name %>
+        <%= form.text_field :corporate_name %>
+    </div>
+    <div>
+        <%= form.label :brand_name %>
+        <%= form.text_field :brand_name %>
+    </div>
+    <div>
+        <%= form.label :domain %>
+        <%= form.text_field :domain %>
+    </div>
+    <div>
+        <%= form.label :registered_number %>
+        <%= form.text_field :registered_number %>
+    </div>
+    <div>
+        <%= form.label :full_address %>
+        <%= form.text_field :full_address %>
+    </div>
+    <div>
+        <%= form.submit 'Cadastrar' %>
+    </div>
+<% end %>

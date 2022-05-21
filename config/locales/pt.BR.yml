@@ -1,0 +1,11 @@
+pt-BR:
+  activerecord:
+    models:
+      carrier: 'Transportadora'
+    attributes:
+      carrier:
+        corporate_name: 'Razão Social'
+        brand_name: 'Nome Fantasia'
+        domain: 'Domínio de E-mail'
+        registered_number: 'CNPJ'
+        full_address: 'Endereço Completo'

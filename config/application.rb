@@ -20,6 +20,12 @@ Bundler.require(*Rails.groups)
 
 module Transport
   class Application < Rails::Application
+    # Permitted locales available for the application
+    I18n.available_locales = [:en, :'pt-BR']
+
+    # Set default locale to something other than :en
+    I18n.default_locale = :'pt-BR'
+
     # Initialize configuration defaults for originally generated Rails version.
     config.load_defaults 7.0
 
