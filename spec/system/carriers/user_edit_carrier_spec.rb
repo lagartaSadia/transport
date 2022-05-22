@@ -41,6 +41,10 @@ describe 'Usuário edita uma transportadora' do
         click_on 'Transportadoras'
         click_on 'Rodox Logistica'
         click_on 'Editar'
-        click_on 'Desativar Transportadora'
+        select 'Inactive', from: 'carrier_status'
+
+        click_on 'Salvar'
+
+        expect(page).to have_content 'Status: inactive'
     end
 end

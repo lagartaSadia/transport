@@ -42,6 +42,6 @@ class CarriersController < ApplicationController
     end
 
     def carrier_params
-        params.require(:carrier).permit(:corporate_name, :brand_name, :domain, :registered_number, :full_address)
+        params.require(:carrier).permit(:corporate_name, :brand_name, :domain, :registered_number, :full_address, :status)
     end
 end

@@ -20,6 +20,9 @@
         <%= form.text_field :full_address %>
     </div>
     <div>
+        <%= form.select(:status, Carrier.statuses.keys.map {|status| [status.titleize,status]}) %>
+    </div>
+    <div>
         <%= form.submit 'Salvar' %>
     </div>
 <% end %>
