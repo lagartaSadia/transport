@@ -12,7 +12,7 @@ describe 'Usuário registra uma nova transportadora' do
         expect(page).to have_field 'Domínio de E-mail'
         expect(page).to have_field 'CNPJ'
         expect(page).to have_field 'Endereço Completo'
-        expect(page).to have_button 'Cadastrar'
+        expect(page).to have_button 'Salvar'
     end
 
     it 'com sucesso' do
@@ -26,7 +26,7 @@ describe 'Usuário registra uma nova transportadora' do
         fill_in 'CNPJ',	with: '31285361000155' 
         fill_in 'Endereço Completo', with: 'Rua sem Esquina, 402 - Maringá - PR'
 
-        click_on 'Cadastrar'
+        click_on 'Salvar'
 
         expect(page).to have_content 'Razão Social: Azul Transportes'
         expect(page).to have_content 'Nome Fantasia: Azul Rápido'

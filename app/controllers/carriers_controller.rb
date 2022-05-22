@@ -23,6 +23,18 @@ class CarriersController < ApplicationController
     def show
     end
 
+    def edit
+    end
+
+    def update
+        if @carrier.update(carrier_params)
+            redirect_to @carrier, notice: 'Transportadora editada com sucesso.'
+        else
+            flash.now[:notice] = 'Não foi possível editar a transportadora'
+            render 'edit'
+        end
+    end
+
     private
 
     def set_carrier
