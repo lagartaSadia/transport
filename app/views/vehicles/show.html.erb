@@ -1,0 +1,21 @@
+<h2>Veículo da <%= @vehicle.carrier.corporate_name %></h2>
+
+<main>
+    <dl>
+        <dt><strong>Marca:</strong></dt>
+        <dd><%= @vehicle.brand %></dd>
+
+        <dt><strong>Placa:</strong></dt>
+        <dd><%= @vehicle.license_plate %></dd>
+
+        <dt><strong>Tipo:</strong></dt>
+        <dd><%= @vehicle.vehicle_type %></dd>
+
+        <dt><strong>Ano de Fabricação:</strong></dt>
+        <dd><%= @vehicle.fabrication_date %></dd>
+
+        <dt><strong>Capacidade:</strong></dt>
+        <dd><%= @vehicle.capacity %>kg</dd>
+    </dl>
+
+</main>

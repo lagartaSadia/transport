@@ -1,0 +1,15 @@
+<h2>Lista de Veículos</h2>
+
+<% @carrier.each do |c| %>
+    <h3><strong>Veículos da <%= c.corporate_name %></strong></h3>
+    <% @vehicles.each do |v| %>
+        <% if v.carrier_id == c.id %>
+            <dl>
+                <dt><%= link_to v.vehicle_type, vehicle_path(v.id) %>:<dt>
+                <dd>Placa: <%= v.license_plate %></dd>
+            </dl>
+        <% else %>
+            <p>Não há veículo cadastrado para essa transportadora.</p> 
+        <% end %> 
+    <% end %>
+<% end %>
