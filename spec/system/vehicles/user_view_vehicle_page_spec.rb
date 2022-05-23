@@ -33,7 +33,7 @@ describe 'Usuário visita página de veículos' do
 
         visit root_path
         click_on 'Veículos'
-        click_on 'Utilitário'
+        click_on 'DCC8524'
 
         expect(page).to have_content 'Veículo da Rodox Logistica'
         expect(page).to have_content 'Marca: VW'

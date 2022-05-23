@@ -2,6 +2,7 @@ pt-BR:
   activerecord:
     models:
       carrier: 'Transportadora'
+      vehicle: 'Veículo'
     attributes:
       carrier:
         corporate_name: 'Razão Social'
@@ -9,3 +10,10 @@ pt-BR:
         domain: 'Domínio de E-mail'
         registered_number: 'CNPJ'
         full_address: 'Endereço Completo'
+      vehicle:
+        license_plate: 'Placa'
+        brand: 'Marca'
+        vehicle_type: 'Tipo do Veículo'
+        fabrication_date: 'Ano de Fabricação'
+        capacity: 'Capacidade'
+        carrier_id: 'Transportadora'

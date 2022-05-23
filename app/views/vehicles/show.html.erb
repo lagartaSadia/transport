@@ -17,5 +17,6 @@
         <dt><strong>Capacidade:</strong></dt>
         <dd><%= @vehicle.capacity %>kg</dd>
     </dl>
-
+    <br>
+    <%= link_to 'Editar', edit_vehicle_path(@vehicle.id) %>
 </main>
