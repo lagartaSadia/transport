@@ -1,26 +1,26 @@
 <%= form_with model: @vehicle do |form| %>
     <div>
-        <%= form.label :brand %>:
+        <%= form.label :brand %>
         <%= form.text_field :brand %>
     </div>
     <div>
-        <%= form.label :vehicle_type %>:
+        <%= form.label :vehicle_type %>
         <%= form.text_field :vehicle_type %>
     </div>
     <div>
-        <%= form.label :license_plate %>:
+        <%= form.label :license_plate %>
         <%= form.text_field :license_plate %>
     </div>
     <div>
-        <%= form.label :fabrication_date %>:
+        <%= form.label :fabrication_date %>
         <%= form.number_field :fabrication_date %>
     </div>
     <div>
-        <%= form.label :capacity %>:
+        <%= form.label :capacity %>
         <%= form.number_field :capacity %>
     </div>
     <div>
-        <%= form.label :carrier_id %>:
+        <%= form.label :carrier_id %>
         <%= form.collection_select(:carrier_id, Carrier.all, :id, :corporate_name) %>
     </div>
     <div>

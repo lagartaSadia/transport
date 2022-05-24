@@ -1,0 +1,27 @@
+<h2>Lista de Taxas de Frete</h2>
+
+<% @carrier.each do |c| %>
+    <h3><strong>Taxas da <%= c.corporate_name %></strong></h3>
+    <table>
+        <thead>
+            <tr>
+                <th>Dimensão</th>
+                <th>Peso</th>
+                <th>Valor por KM</th>
+                <th>Valor mínimo</th>
+            </tr>
+        </thead>
+        <% @price.each do |p| %>
+            <% if p.carrier_id == c.id %>
+                <tbody>
+                    <tr>
+                        <td><%= p.first_dimension %> até <%= p.second_dimension %>m³</td>
+                        <td><%= p.first_weight %> até <%= p.second_weight %>kg</td>
+                        <td><%= number_to_currency(p.fee) %></td>
+                        <td><%= number_to_currency(p.minimal_fee) %></td>
+                    </tr>
+                </tbody>
+            <% end %>
+        <% end %>
+    </table>
+<% end %>
