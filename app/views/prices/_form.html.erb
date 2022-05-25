@@ -1,0 +1,33 @@
+<%= form_with model: @price do |form| %>
+    <div>
+        <%= form.label :first_dimension %>
+        <%= form.number_field :first_dimension, step: :any %>
+    </div>
+    <div>
+        <%= form.label :second_dimension %>
+        <%= form.number_field :second_dimension, step: :any %>
+    </div>
+    <div>
+        <%= form.label :first_weight %>
+        <%= form.number_field :first_weight, step: :any %>
+    </div>
+    <div>
+        <%= form.label :second_weight %>
+        <%= form.number_field :second_weight, step: :any %>
+    </div>
+    <div>
+        <%= form.label :fee %>
+        <%= form.number_field :fee, step: :any %>
+    </div>
+    <div>
+        <%= form.label :minimal_fee %>
+        <%= form.number_field :minimal_fee, step: :any %>
+    </div>
+    <div>
+        <%= form.label :carrier_id %>
+        <%= form.collection_select(:carrier_id, Carrier.all, :id, :corporate_name) %>
+    </div>
+    <div>
+        <%= form.submit 'Salvar' %>
+    </div>
+<% end %>

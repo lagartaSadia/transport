@@ -3,6 +3,7 @@ pt-BR:
     models:
       carrier: 'Transportadora'
       vehicle: 'Veículo'
+      price: 'Taxa de Entrega'
     attributes:
       carrier:
         corporate_name: 'Razão Social'
@@ -16,4 +17,12 @@ pt-BR:
         vehicle_type: 'Tipo do Veículo'
         fabrication_date: 'Ano de Fabricação'
         capacity: 'Capacidade'
+        carrier_id: 'Transportadora'
+      price:
+        first_dimension: 'Dimensão Inicial'
+        second_dimension: 'Dimensão Final'
+        first_weight: 'Peso Inicial'
+        second_weight: 'Peso Final'
+        fee: 'Valor por KM'
+        minimal_fee: 'Taxa Mínima'
         carrier_id: 'Transportadora'

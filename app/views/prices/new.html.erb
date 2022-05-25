@@ -1,0 +1,14 @@
+<h2>Cadastro de Taxa de Frete</h2>
+
+<main>
+    <% if @price.errors.any? %>
+        <p>Verifique os erros abaixo:</p>
+        <ul>
+            <% @price.errors.full_messages.each do |msg| %>
+                <li><%= msg %></li>
+            <% end %>
+        </ul>
+    <% end %>
+
+    <%= render 'form' %>
+</main>

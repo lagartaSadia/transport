@@ -3,5 +3,5 @@ Rails.application.routes.draw do
 
   resources :carriers, only: [:index, :new, :create, :edit, :update, :show]
   resources :vehicles, only: [:index, :show, :new, :create, :edit, :update]
-  resources :prices, only: [:index]
+  resources :prices, only: [:index, :new, :create, :edit, :update]
 end
