@@ -4,6 +4,7 @@ pt-BR:
       carrier: 'Transportadora'
       vehicle: 'Veículo'
       price: 'Taxa de Entrega'
+      delivery_time: 'Prazo de Entrega'
     attributes:
       carrier:
         corporate_name: 'Razão Social'
@@ -25,4 +26,9 @@ pt-BR:
         second_weight: 'Peso Final'
         fee: 'Valor por KM'
         minimal_fee: 'Taxa Mínima'
+        carrier_id: 'Transportadora'
+      delivery_time:
+        first_distance: 'Distância Inicial'
+        second_distance: 'Distância Final'
+        time: 'Prazo de Entrega'
         carrier_id: 'Transportadora'

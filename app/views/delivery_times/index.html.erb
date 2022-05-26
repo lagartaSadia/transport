@@ -1,0 +1,29 @@
+<main>
+    <h2>Lista de Prazos de Entrega</h2>
+
+    <%= link_to 'Cadastrar Prazo', new_delivery_time_path %>
+
+    <% @carriers.each do |c| %>
+        <h3><strong>Prazos da <%= c.corporate_name %></strong></h3>
+        <table>
+            <thead>
+                <tr>
+                    <th>Distância</th>
+                    <th>Prazo de Entrega</th>
+                    <th>Edição</th>
+                </tr>
+            </thead>
+            <% @delivery_times.each do |delivery| %>
+                <% if delivery.carrier_id == c.id %>
+                    <tbody>
+                        <tr>
+                            <td><%= delivery.first_distance %> até <%= delivery.second_distance %>km</td>
+                            <td><%= delivery.time %> dias</td>
+                            <td><%= link_to 'Editar', edit_delivery_time_path(delivery.id) %>
+                        </tr>
+                    </tbody>
+                <% end %>
+            <% end %>
+        </table>
+    <% end %>
+</main>

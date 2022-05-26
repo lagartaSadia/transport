@@ -2,7 +2,7 @@ class VehiclesController < ApplicationController
     before_action :set_vehicle, only: [:show, :edit, :update]
 
     def index
-        @carrier = Carrier.all
+        @carriers = Carrier.all
         @vehicles = Vehicle.all
     end
 

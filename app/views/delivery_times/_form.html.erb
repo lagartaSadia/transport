@@ -1,0 +1,20 @@
+<%= form_with model: @delivery_time do |form| %>
+    <div>
+        <%= form.label :first_distance %>
+        <%= form.number_field :first_distance %>
+    </div>
+    <div>
+        <%= form.label :second_distance %>
+        <%= form.number_field :second_distance %>
+    </div>
+    <div>
+        <%= form.label :time %>
+        <%= form.number_field :time %>
+    <div>
+        <%= form.label :carrier_id %>
+        <%= form.collection_select(:carrier_id, Carrier.all, :id, :corporate_name) %>
+    </div>
+    <div>
+        <%= form.submit 'Salvar' %>
+    </div>
+<% end %>

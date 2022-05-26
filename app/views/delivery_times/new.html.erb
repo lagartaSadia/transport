@@ -1,10 +1,10 @@
 <main>
-    <h2>Cadastro de Transportadora</h2>
+    <h2>Cadastro de Prazo de Entrega</h2>
 
-    <% if @carrier.errors.any? %>
+    <% if @delivery_time.errors.any? %>
         <p>Verifique os erros abaixo:</p>
         <ul>
-            <% @carrier.errors.full_messages.each do |msg| %>
+            <% @delivery_time.errors.full_messages.each do |msg| %>
                 <li><%= msg %></li>
             <% end %>
         </ul>

@@ -7,6 +7,11 @@ class Price < ApplicationRecord
 
   validates :first_dimension, :second_dimension, :first_weight, :second_weight, numericality: { greater_than_or_equal_to: 0 }
 
+  validates :second_dimension, numericality: { greater_than: :first_dimension}
+
+  validates :second_weight, numericality: { greater_than: :first_weight}
+
+
   validates :fee, :minimal_fee, numericality: { greater_than: 0 }
 
   validates :first_dimension, :second_dimension, :first_weight, :second_weight, format: { with: DIMENSION_REGEXP }

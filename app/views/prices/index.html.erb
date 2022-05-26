@@ -1,31 +1,33 @@
-<h2>Lista de Taxas de Frete</h2>
+<main>
+    <h2>Lista de Taxas de Frete</h2>
 
-<%= link_to 'Cadastrar Taxa', new_price_path %>
+    <%= link_to 'Cadastrar Taxa', new_price_path %>
 
-<% @carrier.each do |c| %>
-    <h3><strong>Taxas da <%= c.corporate_name %></strong></h3>
-    <table>
-        <thead>
-            <tr>
-                <th>Dimensão</th>
-                <th>Peso</th>
-                <th>Valor por KM</th>
-                <th>Valor mínimo</th>
-                <th>Edição</th>
-            </tr>
-        </thead>
-        <% @price.each do |p| %>
-            <% if p.carrier_id == c.id %>
-                <tbody>
-                    <tr>
-                        <td><%= p.first_dimension %> até <%= p.second_dimension %>m³</td>
-                        <td><%= p.first_weight %> até <%= p.second_weight %>kg</td>
-                        <td><%= number_to_currency(p.fee) %></td>
-                        <td><%= number_to_currency(p.minimal_fee) %></td>
-                        <td><%= link_to 'Editar', edit_price_path(p.id) %>
-                    </tr>
-                </tbody>
+    <% @carriers.each do |c| %>
+        <h3><strong>Taxas da <%= c.corporate_name %></strong></h3>
+        <table>
+            <thead>
+                <tr>
+                    <th>Dimensão</th>
+                    <th>Peso</th>
+                    <th>Valor por KM</th>
+                    <th>Valor mínimo</th>
+                    <th>Edição</th>
+                </tr>
+            </thead>
+            <% @price.each do |p| %>
+                <% if p.carrier_id == c.id %>
+                    <tbody>
+                        <tr>
+                            <td><%= p.first_dimension %> até <%= p.second_dimension %>m³</td>
+                            <td><%= p.first_weight %> até <%= p.second_weight %>kg</td>
+                            <td><%= number_to_currency(p.fee) %></td>
+                            <td><%= number_to_currency(p.minimal_fee) %></td>
+                            <td><%= link_to 'Editar', edit_price_path(p.id) %>
+                        </tr>
+                    </tbody>
+                <% end %>
             <% end %>
-        <% end %>
-    </table>
-<% end %>
+        </table>
+    <% end %>
+</main>

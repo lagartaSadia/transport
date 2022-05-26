@@ -2,7 +2,7 @@ class PricesController < ApplicationController
     before_action :set_price, only: [:edit, :update]
 
     def index
-        @carrier = Carrier.all
+        @carriers = Carrier.all
         @price = Price.all
     end
 

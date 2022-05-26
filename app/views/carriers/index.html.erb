@@ -1,16 +1,18 @@
-<h2>Transportadoras</h2>
+<main>
+    <h2>Transportadoras</h2>
 
-<div>
-    <%= link_to 'Cadastrar Transportadora', new_carrier_path %>
-</div>
+    <div>
+        <%= link_to 'Cadastrar Transportadora', new_carrier_path %>
+    </div>
 
-<% if @carriers.empty? %>
-    <p>Não há transportadoras cadastradas.</p>
-<% else %>
-    <dl>
-        <% @carriers.each do |c| %>
-            <dt><strong><%= link_to c.corporate_name, carrier_path(c.id) %></strong></dt>
-            <dd>Endereço: <%= c.full_address %></dd>
-        <% end %>
-    </dl>
-<% end %>
+    <% if @carriers.empty? %>
+        <p>Não há transportadoras cadastradas.</p>
+    <% else %>
+        <dl>
+            <% @carriers.each do |c| %>
+                <dt><strong><%= link_to c.corporate_name, carrier_path(c.id) %></strong></dt>
+                <dd>Endereço: <%= c.full_address %></dd>
+            <% end %>
+        </dl>
+    <% end %>
+</main>
