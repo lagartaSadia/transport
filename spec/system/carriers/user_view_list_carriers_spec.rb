@@ -1,6 +1,13 @@
 require 'rails_helper'
 
 describe 'Usuário acessa a tela de transportadoras' do
+    it 'se estiver autenticado' do
+        visit root_path
+        click_on 'Transportadoras'
+
+        expect(page).to have_content 'Não permitido'
+    end
+
     it 'com sucesso' do
         visit root_path
         click_on 'Transportadoras'

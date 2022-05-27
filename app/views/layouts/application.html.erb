@@ -15,6 +15,11 @@
       <nav>
         <ul>
           <li><%= link_to 'Home', root_path %></li>
+          <% if user_signed_in? %>
+            <li><%= button_to 'Sair', destroy_user_session_path, method: :delete  %></li>
+          <% else %>
+            <li><%= link_to 'Login', new_user_session_path  %></li>
+          <% end %>
           <li><%= link_to 'Transportadoras', carriers_path %></li>
           <li><%= link_to 'Veículos', vehicles_path %></li>
           <li><%= link_to 'Taxas de Frete', prices_path %></li>
