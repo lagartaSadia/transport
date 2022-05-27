@@ -1,5 +1,8 @@
 class CarriersController < ApplicationController
     before_action :set_carrier, only: [:edit, :update, :show]
+
+    before_action :authenticate_user!
+    before_action :check_admin
     
     def index
         @carriers = Carrier.all
@@ -43,5 +46,12 @@ class CarriersController < ApplicationController
 
     def carrier_params
         params.require(:carrier).permit(:corporate_name, :brand_name, :domain, :registered_number, :full_address, :status)
+    end
+
+    def check_admin
+        user = current_user
+        if current_user.user?
+            redirect_to root_path, alert: 'Você não tem permissão para acessar essa página.'
+        end
     end
 end
