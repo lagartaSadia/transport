@@ -1,0 +1,30 @@
+<main>
+    <h2>Consulta de Frete<h2>
+
+    <% if @consult.errors.any? %>
+        <p>Verifique os erros abaixo:</p>
+        <ul>
+            <% @consult.errors.full_messages.each do |msg| %>
+                <li><%= msg %></li>
+            <% end %>
+        </ul>
+    <% end %>
+
+    <%= form_with model: @consult do |form| %>
+        <div>
+            <%= form.label :item_dimension %>
+            <%= form.number_field :item_dimension, step: :any %>
+        </div>
+        <div>
+            <%= form.label :item_weight %>
+            <%= form.number_field :item_weight, step: :any %>
+        </div>
+        <div>
+            <%= form.label :distance %>
+            <%= form.number_field :distance %>
+        </div>
+        <div>
+            <%= form.submit 'Consultar' %>
+        </div>
+    <% end %>
+</main>

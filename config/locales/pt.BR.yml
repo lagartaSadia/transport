@@ -5,6 +5,7 @@ pt-BR:
       vehicle: 'Veículo'
       price: 'Taxa de Entrega'
       delivery_time: 'Prazo de Entrega'
+      consult: 'Consulta de Frete'
     attributes:
       carrier:
         corporate_name: 'Razão Social'
@@ -32,3 +33,7 @@ pt-BR:
         second_distance: 'Distância Final'
         time: 'Prazo de Entrega'
         carrier_id: 'Transportadora'
+      consult:
+        item_dimension: 'Dimensão do Item'
+        item_weight: 'Peso do Item'
+        distance: 'Distância de Entrega'

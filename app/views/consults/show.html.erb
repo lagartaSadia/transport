@@ -1,0 +1,43 @@
+<main>
+    <h2>Consulta de Frete</h2>
+
+    <div>
+        <strong>Detalhes do Item</strong>
+    </div>
+
+    <dl>
+        <dt>Dimensão do Item:</dt>
+        <dd><%= @consult.item_dimension %>m³<dd>
+        <dt>Peso do Item:</dt>
+        <dd><%= @consult.item_weight %>kg<dd>
+        <dd>Distância de Entrega:</dt>
+        <dd><%= @consult.distance %>km<dd>
+    </dl>
+
+    <% @prices.each do |p| %>
+        <div>
+            <strong><%= p.carrier.corporate_name %></strong>
+        </div>
+        <% price = p.fee * @consult.distance %>
+        <dl>
+            <dt>Valor do Frete:</dt>
+            <dd>
+                <% if price > p.minimal_fee %>
+                    <%= number_to_currency(price) %>
+                <% else %>
+                    <%= number_to_currency(p.minimal_fee) %>
+                <% end %>
+            </dd>
+        </dl>
+    <% end %>
+
+    <% @delivery_times.each do |d| %>
+        <div>
+            <strong><%= d.carrier.corporate_name %></strong>
+        </div>
+        <dl>
+            <dt>Tempo de Entrega:</dt>
+            <dd><%= d.time %></dd>
+        </dl>
+    <% end %>
+</main>
