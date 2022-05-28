@@ -2,6 +2,8 @@ require 'rails_helper'
 
 describe 'Usuário consulta condições de entrega' do
     it 'com sucesso' do
+        user = User.create!(email: 'lucas@sistemadefrete.com.br', password: 'password')
+
         carrier = Carrier.create!(corporate_name: 'Logi Transportes', brand_name: 'Logi', domain: 'logi.com.br', registered_number: '12121212121212', full_address: 'Rua Maluca, 45 - Joaçaba - MG')
 
         Price.create!(first_dimension: 0.001, second_dimension: 0.500, first_weight: 0, second_weight: 10, fee: 0.5, minimal_fee: 5, carrier: carrier)
@@ -13,6 +15,7 @@ describe 'Usuário consulta condições de entrega' do
         DeliveryTime.create!(first_distance: 50, second_distance: 100, time: 5, carrier: carrier)
 
         visit root_path
+        login_as(user)
         click_on 'Consultar Frete'
 
         fill_in 'Dimensão do Item', with: '0.3'
@@ -30,7 +33,10 @@ describe 'Usuário consulta condições de entrega' do
     end
 
     it 'com campos inválidos' do
+        user = User.create!(email: 'lucas@sistemadefrete.com.br', password: 'password')
+
         visit root_path
+        login_as(user)
         click_on 'Consultar Frete'
 
         fill_in 'Dimensão do Item', with: '0'

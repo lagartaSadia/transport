@@ -1,9 +1,10 @@
 class VehiclesController < ApplicationController
     before_action :set_vehicle, only: [:show, :edit, :update]
 
+    before_action :authenticate_user!
+    before_action :check_carrier
+
     def index
-        @carriers = Carrier.all
-        @vehicles = Vehicle.all
     end
 
     def show
@@ -46,5 +47,19 @@ class VehiclesController < ApplicationController
 
     def vehicle_params
         params.require(:vehicle).permit(:license_plate, :brand, :vehicle_type, :fabrication_date, :capacity, :carrier_id)
+    end
+
+    def check_carrier
+        user = current_user
+        if user.admin?
+            @carriers = Carrier.all
+            @vehicles = Vehicle.all
+        else
+            @carriers = Carrier.where('id = ?', user.carrier_id)
+            @vehicles = Vehicle.where('carrier_id = ?', user.carrier_id)
+            if @carriers.empty?
+                redirect_to root_path, notice: 'Não há transportador cadastrada para o seu usuário. Contate o administrador do sistema!'
+            end
+        end
     end
 end

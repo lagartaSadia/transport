@@ -2,7 +2,10 @@ require 'rails_helper'
 
 describe 'Usuário registra uma nova transportadora' do
     it 'a partir da tela de transportadoras' do
+        user = User.create!(email: 'lucas@sistemadefrete.com.br', password: 'password')
+
         visit root_path
+        login_as(user)
         click_on 'Transportadoras'
         click_on 'Cadastrar Transportadora'
 
@@ -16,7 +19,10 @@ describe 'Usuário registra uma nova transportadora' do
     end
 
     it 'com sucesso' do
+        user = User.create!(email: 'lucas@sistemadefrete.com.br', password: 'password')
+
         visit root_path
+        login_as(user)
         click_on 'Transportadoras'
         click_on 'Cadastrar Transportadora'
 

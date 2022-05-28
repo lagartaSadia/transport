@@ -6,7 +6,10 @@ describe 'Usuário edita um veículo' do
 
         Vehicle.create!(license_plate: 'DCC8524', brand: 'VW', vehicle_type: 'Utilitário', fabrication_date: 2012, capacity: 8000, carrier: carrier)
 
+        user = User.create!(email: 'lucas@logi.com.br', password: 'password')
+
         visit root_path
+        login_as(user)
         click_on 'Veículos'
         click_on 'DCC8524'
         click_on 'Editar'
@@ -17,7 +20,6 @@ describe 'Usuário edita um veículo' do
         expect(page).to have_field 'Placa', with: 'DCC8524'
         expect(page).to have_field 'Ano de Fabricação', with: '2012'
         expect(page).to have_field 'Capacidade', with: '8000'
-        expect(page).to have_field 'Transportadora', with: carrier.id
     end
 
     it 'com sucesso' do
@@ -27,19 +29,20 @@ describe 'Usuário edita um veículo' do
 
         Vehicle.create!(license_plate: 'DCC8524', brand: 'VW', vehicle_type: 'Utilitário', fabrication_date: 2012, capacity: 8000, carrier: carrier)
 
+        user = User.create!(email: 'lucas@logi.com.br', password: 'password')
+
         visit root_path
+        login_as(user)
         click_on 'Veículos'
         click_on 'DCC8524'
         click_on 'Editar'
 
         fill_in 'Ano de Fabricação', with: 2010
         fill_in 'Marca', with: 'BMW'
-        select 'Carreiro Logi', from: 'Transportadora'
 
         click_on 'Salvar'
 
         expect(page).to have_content 'Veículo atualizado com sucesso.'
-        expect(page).to have_content 'Veículo da Carreiro Logi'
         expect(page).to have_content 'Marca: BMW'
         expect(page).to have_content 'Ano de Fabricação: 2010'
     end

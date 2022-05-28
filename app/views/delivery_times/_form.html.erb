@@ -11,8 +11,7 @@
         <%= form.label :time %>
         <%= form.number_field :time %>
     <div>
-        <%= form.label :carrier_id %>
-        <%= form.collection_select(:carrier_id, Carrier.all, :id, :corporate_name) %>
+        <%= form.hidden_field :carrier_id, value: current_user.carrier_id %>
     </div>
     <div>
         <%= form.submit 'Salvar' %>

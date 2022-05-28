@@ -2,7 +2,12 @@ require 'rails_helper'
 
 describe 'Usuário visita página de veículos' do
     it 'a partir da tela inicial' do
+        carrier = Carrier.create!(corporate_name: 'Logi Transportes', brand_name: 'Logi', domain: 'logi.com.br', registered_number: '12121212121212', full_address: 'Rua Maluca, 45 - Joaçaba - MG')
+
+        user = User.create!(email: 'lucas@logi.com.br', password: 'password')
+
         visit root_path
+        login_as(user)
         click_on 'Veículos'
 
         expect(page).to have_content 'Lista de Veículos'
@@ -14,7 +19,10 @@ describe 'Usuário visita página de veículos' do
         Vehicle.create!(license_plate: 'MEC9096', brand: 'Volvo', vehicle_type: 'Caminhão', fabrication_date: 1990, capacity: 20000, carrier: carrier)
         Vehicle.create!(license_plate: 'DCC8524', brand: 'VW', vehicle_type: 'Utilitário', fabrication_date: 2012, capacity: 8000, carrier: carrier)
 
+        user = User.create!(email: 'lucas@rodox.com', password: 'password')
+
         visit root_path
+        login_as(user)
         click_on 'Veículos'
 
         expect(page).to have_content 'Veículos da Rodox Logistica'
@@ -31,7 +39,10 @@ describe 'Usuário visita página de veículos' do
         Vehicle.create!(license_plate: 'MEC9096', brand: 'Volvo', vehicle_type: 'Caminhão', fabrication_date: 1990, capacity: 20000, carrier: carrier)
         Vehicle.create!(license_plate: 'DCC8524', brand: 'VW', vehicle_type: 'Utilitário', fabrication_date: 2012, capacity: 8000, carrier: carrier)
 
+        user = User.create!(email: 'lucas@rodox.com', password: 'password')
+
         visit root_path
+        login_as(user)
         click_on 'Veículos'
         click_on 'DCC8524'
 

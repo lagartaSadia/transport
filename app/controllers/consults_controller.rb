@@ -1,4 +1,7 @@
 class ConsultsController < ApplicationController
+
+    before_action :authenticate_user!
+    before_action :check_admin
     
     def show
         @consult = Consult.find(params[:id])
@@ -29,5 +32,12 @@ class ConsultsController < ApplicationController
 
     def consult_params
         params.require(:consult).permit(:item_dimension, :item_weight, :distance)
+    end
+
+    def check_admin
+        user = current_user
+        if current_user.user?
+            redirect_to root_path, alert: 'Você não tem permissão para acessar essa página.'
+        end
     end
 end

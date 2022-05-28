@@ -10,7 +10,10 @@ describe 'Usuário acessa a tela de transportadoras' do
     end
 
     it 'com sucesso' do
+        user = User.create!(email: 'lucas@sistemadefrete.com.br', password: 'password')
+
         visit root_path
+        login_as(user)
         click_on 'Transportadoras'
 
         expect(current_path).to eq carriers_path
@@ -18,9 +21,12 @@ describe 'Usuário acessa a tela de transportadoras' do
     end
 
     it 'e vê lista de transportadoras cadastradas' do
+        user = User.create!(email: 'lucas@sistemadefrete.com.br', password: 'password')
+        
         Carrier.create!(corporate_name: 'Logi Transportes', brand_name: 'Logi', domain: 'logi.com.br', registered_number: '12121212121212', full_address: 'Rua Maluca, 45 - Joaçaba - MG')
 
         visit root_path
+        login_as(user)
         click_on 'Transportadoras'
 
         expect(page).to have_content 'Logi Transportes'
@@ -28,7 +34,10 @@ describe 'Usuário acessa a tela de transportadoras' do
     end
 
     it 'e não há transportadoras cadastradas' do
+        user = User.create!(email: 'lucas@sistemadefrete.com.br', password: 'password')
+        
         visit root_path
+        login_as(user)
         click_on 'Transportadoras'
 
         expect(page).to have_content 'Não há transportadoras cadastradas.'

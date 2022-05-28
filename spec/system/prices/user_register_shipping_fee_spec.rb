@@ -2,7 +2,12 @@ require 'rails_helper'
 
 describe 'Usuário registra uma taxa de entrega' do
     it 'e vê formulário' do
+        Carrier.create!(corporate_name: 'Logi Transportes', brand_name: 'Logi', domain: 'logi.com.br', registered_number: '12121212121212', full_address: 'Rua Maluca, 45 - Joaçaba - MG')
+
+        user = User.create!(email: 'lucas@logi.com.br', password: 'password')
+
         visit root_path
+        login_as(user)
         click_on 'Taxas de Frete'
         click_on 'Cadastrar Taxa'
 
@@ -19,7 +24,10 @@ describe 'Usuário registra uma taxa de entrega' do
     it 'com sucesso' do
         Carrier.create!(corporate_name: 'Logi Transportes', brand_name: 'Logi', domain: 'logi.com.br', registered_number: '12121212121212', full_address: 'Rua Maluca, 45 - Joaçaba - MG')
 
+        user = User.create!(email: 'lucas@logi.com.br', password: 'password')
+
         visit root_path
+        login_as(user)
         click_on 'Taxas de Frete'
         click_on 'Cadastrar Taxa'
 
@@ -29,7 +37,6 @@ describe 'Usuário registra uma taxa de entrega' do
         fill_in 'Peso Final',	with: "10" 
         fill_in 'Valor por KM',	with: "0.50" 
         fill_in 'Taxa Mínima',	with: "15" 
-        select 'Logi Transportes', from: 'Transportadora'
 
         click_on 'Salvar'
 

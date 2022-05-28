@@ -2,8 +2,12 @@ require 'rails_helper'
 
 describe 'Usuário acessa a tela de taxas de frete' do
     it 'a partir da tela inicial' do
+        carrier = Carrier.create!(corporate_name: 'Logi Transportes', brand_name: 'Logi', domain: 'logi.com.br', registered_number: '12121212121212', full_address: 'Rua Maluca, 45 - Joaçaba - MG')
+
+        user = User.create!(email: 'lucas@logi.com.br', password: 'password')
         
         visit root_path
+        login_as(user)
         click_on 'Taxas de Frete'
 
         expect(page).to have_content 'Lista de Taxas de Frete'
@@ -16,8 +20,11 @@ describe 'Usuário acessa a tela de taxas de frete' do
         Price.create!(first_dimension: 0.001, second_dimension: 0.500, first_weight: 10, second_weight: 30, fee: 0.8, minimal_fee: 8, carrier: carrier)
         Price.create!(first_dimension: 0.501, second_dimension: 1.000, first_weight: 0, second_weight: 10, fee: 0.75, minimal_fee: 8, carrier: carrier)
         Price.create!(first_dimension: 0.501, second_dimension: 1.000, first_weight: 10, second_weight: 30, fee: 1.25, minimal_fee: 12, carrier: carrier)
-
+        
+        user = User.create!(email: 'lucas@logi.com.br', password: 'password')
+        
         visit root_path
+        login_as(user)
         click_on 'Taxas de Frete'
 
         expect(page).to have_content 'Taxas da Logi Transportes'
