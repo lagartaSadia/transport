@@ -1,0 +1,10 @@
+pt-BR:
+  activerecord:
+    models:
+      delivery_time: 'Prazo de Entrega'
+    attributes:
+      delivery_time:
+        first_distance: 'Distância Inicial'
+        second_distance: 'Distância Final'
+        time: 'Prazo de Entrega'
+        carrier_id: 'Transportadora'

@@ -1,0 +1,13 @@
+pt-BR:
+  activerecord:
+    models:
+      price: 'Taxa de Entrega'
+    attributes:
+      price:
+        first_dimension: 'Dimensão Inicial'
+        second_dimension: 'Dimensão Final'
+        first_weight: 'Peso Inicial'
+        second_weight: 'Peso Final'
+        fee: 'Valor por KM'
+        minimal_fee: 'Taxa Mínima'
+        carrier_id: 'Transportadora'

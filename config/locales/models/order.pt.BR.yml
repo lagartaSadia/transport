@@ -1,0 +1,13 @@
+pt-BR:
+  activerecord:
+    models:
+      order: 'Pedido'
+    attributes:
+      order:
+        vendor_address: 'Endereço de Coleta'
+        item_code: 'Código de Coleta'
+        item_dimension: 'Dimensão do Produto'
+        item_weight: 'Peso do Produto'
+        client_address: 'Endereço de Entrega'
+        client_information: 'Destinatário'
+        carrier_id: 'Transportadora'

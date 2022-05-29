@@ -1,0 +1,9 @@
+pt-BR:
+  activerecord:
+    models:
+      consult: 'Consulta de Frete'
+    attributes:
+      consult:
+        item_dimension: 'Dimensão do Item'
+        item_weight: 'Peso do Item'
+        distance: 'Distância de Entrega'

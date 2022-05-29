@@ -7,4 +7,5 @@ Rails.application.routes.draw do
   resources :prices, only: [:index, :new, :create, :edit, :update]
   resources :delivery_times, only: [:index, :new, :create, :edit, :update]
   resources :consults, only: [:new, :create, :show]
+  resources :orders, only: [:new, :create]
 end
