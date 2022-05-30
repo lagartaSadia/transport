@@ -6,6 +6,8 @@ describe 'Usuário cadastra um pedido' do
 
         user = User.create!(email:'admin@sistemadefrete.com.br', password: 'password')
 
+        allow(SecureRandom).to receive(:alphanumeric).and_return('TRANSPOR9021PRO')
+
         login_as(user)
         visit root_path
         click_on 'Registrar Pedido'
@@ -21,6 +23,6 @@ describe 'Usuário cadastra um pedido' do
         click_on 'Criar Ordem de Pedido'
 
         expect(page).to have_content 'Ordem criada com sucesso.'
-        expect(page).to have_content 'Código Identificador: TRANSPOR9021PRO'
+        expect(page).to have_content 'Pedido TRANSPOR9021PRO'
     end
 end

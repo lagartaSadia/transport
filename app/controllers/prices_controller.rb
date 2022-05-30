@@ -2,7 +2,7 @@ class PricesController < ApplicationController
     before_action :set_price, only: [:edit, :update]
 
     before_action :authenticate_user!
-    before_action :check_carrier
+    before_action :check_carrier, only: [:index]
 
     def index
     end
