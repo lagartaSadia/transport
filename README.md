@@ -11,4 +11,7 @@ Controle de versão:
 - RSpec 3.11
 - SQlite3 3.31.1
 
+Gems adicionais:
+ - translate_enum ( documentação da gem: https://github.com/shlima/translate_enum )
+
 <h3>Orientações de uso</h3>
