@@ -16,6 +16,8 @@ Gems adicionais:
 
 <h3> Próximos Passos </h3>
 Correções:
-- Corrigir erro no teste de atualizar status e acrescentar veículo no pedido, (erro acontece somente no RSpec)
-- Atualizar a rota com endereço atual
-- Implementar busca pelo Código Identificador
+<ul>
+  <li>Corrigir erro no teste de atualizar status e acrescentar veículo no pedido, (erro acontece somente no RSpec)</li>
+  <li>Atualizar a rota com endereço atual</li>
+  <li>Implementar busca pelo Código Identificador</li>
+</ul>
