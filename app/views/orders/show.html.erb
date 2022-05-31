@@ -1,2 +1,5 @@
 <h2>Pedido <%= @order.code %></h2>
 <p>Status: <%= @order.translated_status %></p>
+<% if @order.vehicle_id.present? %>
+    <p>Placa: <%= @order.vehicle.license_plate %></p>
+<% end %>

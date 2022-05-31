@@ -1,4 +1,6 @@
 class OrdersController < ApplicationController
+    before_action :set_order, only: [:show, :edit, :update]
+
     before_action :authenticate_user!
     before_action :check_admin, only: [:new, :create]
     before_action :check_carrier, only: [:index]
@@ -17,7 +19,7 @@ class OrdersController < ApplicationController
     end
 
     def create
-        @order = Order.new(order_create_params)
+        @order = Order.new(order_params)
 
         if @order.save!
             redirect_to @order, notice: 'Ordem criada com sucesso.'
@@ -28,18 +30,29 @@ class OrdersController < ApplicationController
         end
     end
 
+    def edit
+        @order = Order.find(params[:id])
+        @vehicles = Vehicle.where('carrier_id = ?', @order.carrier_id)
+    end
+
     def update
-        # em vez de UPDATE irá SAVE no banco de dados para permitir que o visitante veja a atualização dos pedidos
+        if @order.update!(order_params)
+            redirect_to @order, notice: 'Ordem editada com sucesso.'
+        else
+            flash.now[:notice] = 'Não foi possível editar a Ordem'
+            @vehicles = Vehicle.where('carrier_id = ?', @order.carrier_id)
+            render 'edit'
+        end
     end
 
     private
 
-    def order_create_params
-        params.require(:order).permit(:vendor_address, :item_code, :item_dimension, :item_weight, :client_address, :client_information, :carrier_id)
+    def set_order
+        @order = Order.find(params[:id])
     end
 
-    def order_update_params
-        params.require(:order).permit(:vendor_address, :item_code, :item_dimension, :item_weight, :client_address, :client_information, :carrier_id, :vehicle_id, :update_address)
+    def order_params
+        params.require(:order).permit(:vendor_address, :item_code, :item_dimension, :item_weight, :client_address, :client_information, :carrier_id, :vehicle_id, :update_address, :status)
     end
 
     def check_admin
@@ -53,10 +66,10 @@ class OrdersController < ApplicationController
         user = current_user
         if user.admin?
             @carriers = Carrier.all
-            @vehicles = Vehicle.all
+            @orders = Order.all
         else
             @carriers = Carrier.where('id = ?', user.carrier_id)
-            @vehicles = Vehicle.where('carrier_id = ?', user.carrier_id)
+            @orders = Order.where('carrier_id = ?', user.carrier_id)
             if @carriers.empty?
                 redirect_to root_path, notice: 'Não há transportador cadastrada para o seu usuário. Contate o administrador do sistema!'
             end

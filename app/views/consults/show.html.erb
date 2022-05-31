@@ -10,34 +10,38 @@
         <dd><%= @consult.item_dimension %>m³<dd>
         <dt>Peso do Item:</dt>
         <dd><%= @consult.item_weight %>kg<dd>
-        <dd>Distância de Entrega:</dt>
+        <dt>Distância de Entrega:</dt>
         <dd><%= @consult.distance %>km<dd>
     </dl>
 
-    <% @prices.each do |p| %>
-        <div>
-            <strong><%= p.carrier.corporate_name %></strong>
-        </div>
-        <% price = p.fee * @consult.distance %>
-        <dl>
-            <dt>Valor do Frete:</dt>
-            <dd>
-                <% if price > p.minimal_fee %>
-                    <%= number_to_currency(price) %>
-                <% else %>
-                    <%= number_to_currency(p.minimal_fee) %>
-                <% end %>
-            </dd>
-        </dl>
-    <% end %>
+    <% if @prices.empty? || @delivery_times.empty? %>
+        <p>Não há transportadoras disponíveis para entregar esse item</p>
+    <% else %>
+        <% @prices.each do |p| %>
+            <div>
+                <strong><%= p.carrier.corporate_name %></strong>
+            </div>
+            <% price = p.fee * @consult.distance %>
+            <dl>
+                <dt>Valor do Frete:</dt>
+                <dd>
+                    <% if price > p.minimal_fee %>
+                        <%= number_to_currency(price) %>
+                    <% else %>
+                        <%= number_to_currency(p.minimal_fee) %>
+                    <% end %>
+                </dd>
+            </dl>
+        <% end %>
 
-    <% @delivery_times.each do |d| %>
-        <div>
-            <strong><%= d.carrier.corporate_name %></strong>
-        </div>
-        <dl>
-            <dt>Tempo de Entrega:</dt>
-            <dd><%= d.time %> dias</dd>
-        </dl>
+        <% @delivery_times.each do |d| %>
+            <div>
+                <strong><%= d.carrier.corporate_name %></strong>
+            </div>
+            <dl>
+                <dt>Tempo de Entrega:</dt>
+                <dd><%= d.time %> dias</dd>
+            </dl>
+        <% end %>
     <% end %>
 </main>

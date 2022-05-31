@@ -11,6 +11,9 @@ pt-BR:
         client_address: 'Endereço de Entrega'
         client_information: 'Destinatário'
         carrier_id: 'Transportadora'
+        vehicle_id: 'Veículo'
+        status: 'Status'
+        update_address: 'Endereço Atual'
         status_list:
           pending: Pendente de Aceite
           accepted: Aceito

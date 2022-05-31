@@ -1,0 +1,26 @@
+<main>
+    <h2>Atualizar de Pedido</h2>
+    
+    <% if @order.status != 2 %>
+        <%= form_with model: @order do |form| %>
+            <div>
+                <%= form.label :status%>
+                <%= form.select(:status, Order.statuses.keys.map {|status| [status.titleize,status]}) %>
+            </div>
+            <div>
+                <%= form.label :vehicle_id %>
+                <%= form.collection_select :vehicle_id, @vehicles, :id, :license_plate, :include_blank => true %>
+            </div>
+            <br>
+            <div>
+                <%= form.label :update_address %>
+                <%= form.text_field :update_address %>
+            </div>  
+            <div>
+                <%= form.submit 'Atualizar' %>
+            </div>
+        <% end %>
+    <% else %>
+        <p>Pedido foi rejeitado</p>
+    <% end %>
+</main>

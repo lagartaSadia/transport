@@ -1,0 +1,13 @@
+<main>
+    <h2>Lista de Pedidos</h2>
+
+    <% @orders.each do |order| %>
+        <dl>
+            <dt>Pedido</dt>
+            <dd><%= link_to order.code , edit_order_path(order.id) %></dd>
+
+            <dt>Status:</dt>
+            <dd><%= order.translated_status %></dd>
+        </dl>
+    <% end %>
+</main>
