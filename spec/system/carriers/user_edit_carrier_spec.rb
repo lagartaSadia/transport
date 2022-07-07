@@ -2,13 +2,12 @@ require 'rails_helper'
 
 describe 'Usuário edita uma transportadora' do
     it 'e vê formulário preenchido com os dados da transportadora correta' do
-        user = User.create!(email: 'lucas@sistemadefrete.com.br', password: 'password')
+        admin = User.create!(email: 'admin@sistemadefrete.com.br', password: 'password')
 
         Carrier.create!(corporate_name: 'Rodox Logistica', brand_name: 'Rodolog', domain: 'rodox.com', registered_number: '60150785000100', full_address: 'Estrada de Baixo, 99 - Joinville - SC')
 
-
+        login_as(admin)
         visit root_path
-        login_as(user)
         click_on 'Transportadoras'
         click_on 'Rodox Logistica'
         click_on 'Editar'

@@ -1,55 +1,47 @@
-body {
-    background-color: rgb(224, 216, 216);
-}
-
-nav ul {
-    list-style-type: none;
-    margin: 0;
+* {
     padding: 0;
-    overflow: hidden;
-}
-  
-nav ul li {
-    float: left;
-    border-bottom: 0.5px solid rgb(122, 122, 122);
+    margin: 0;
 }
 
-nav ul li:not(:first-child) {
-    margin-left: 5px;
+@media (prefers-color-scheme: dark) {
+    :root {
+        --body-bg: #221f1f;
+        --body-color: #ddc9c9;
+    }
 }
-  
-nav ul li a {
-    display: block;
-    color: black;
-    text-align: center;
-    padding: 14px 16px;
+
+.cabecalho {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+    background-color: var(--body-bg);
+    padding: 20px;
+}
+
+.cabecalho-menu {
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
+}
+
+.cabecalho-menu-link {
     text-decoration: none;
-}
-  
-nav ul li a:hover {
-    background-color: rgb(122, 122, 122);
-}
-
-button {
-    background: none;
-	color: black;
-	border: none;
-    padding: 14px 16px;
-    text-align: center;
-	font: inherit;
-	cursor: pointer;
-	outline: inherit;
+    color: var(--body-color);
+    padding: 10px 2px;
+    border: none;
+    border-radius: 5px;
 }
 
-button:hover {
-    background-color: rgb(122, 122, 122);
+.cabecalho-menu-link:hover {
+    background-color: var(--body-color);
+    color: var(--body-bg);
 }
 
-table, td, th {
-    border: 1px solid;
-}
-
-table {
-    width: 50%;
-    border-collapse: collapse;
+.button {
+    border: none;
+    color: var(--body-color);
+    background-color: var(--body-bg);
+    font-size: medium;
+    cursor: pointer;
 }

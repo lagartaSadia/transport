@@ -10,24 +10,23 @@
   </head>
 
   <body>
-    <header>
-      <h1>Sistema de Frete</h1>
-      <nav>
-        <ul>
-          <li><%= link_to 'Home', root_path %></li>
-          <% if user_signed_in? %>
-            <li><%= button_to 'Sair', destroy_user_session_path, method: :delete  %></li>
-          <% else %>
-            <li><%= link_to 'Login', new_user_session_path  %></li>
+    <header class='cabecalho'>
+      <h1><%= link_to 'Sistema de Frete', root_path, class: 'cabecalho-menu-link' %></h1>
+      <nav class='cabecalho-menu'>
+        <% if user_signed_in? %>
+          <%= link_to 'Transportadoras', carriers_path, class: 'cabecalho-menu-link' %>
+          <%= link_to 'Veículos', vehicles_path, class: 'cabecalho-menu-link' %>
+          <%= link_to 'Taxas de Frete', prices_path, class: 'cabecalho-menu-link' %>
+          <%= link_to 'Prazos de Entrega', delivery_times_path, class: 'cabecalho-menu-link' %>
+          <% if current_user.admin? %>
+            <%= link_to 'Consultar Frete', new_consult_path, class: 'cabecalho-menu-link' %>
+            <%= link_to 'Registrar Pedido', new_order_path, class: 'cabecalho-menu-link' %>
+            <%= link_to 'Meus Pedidos', orders_path, class: 'cabecalho-menu-link' %>
           <% end %>
-          <li><%= link_to 'Transportadoras', carriers_path %></li>
-          <li><%= link_to 'Veículos', vehicles_path %></li>
-          <li><%= link_to 'Taxas de Frete', prices_path %></li>
-          <li><%= link_to 'Prazos de Entrega', delivery_times_path %></li>
-          <li><%= link_to 'Consultar Frete', new_consult_path %></li>
-          <li><%= link_to 'Registrar Pedido', new_order_path %></li>
-          <li><%= link_to 'Meus Pedidos', orders_path %></li>
-        </ul>
+          <%= button_to 'Sair', destroy_user_session_path, method: :delete, class: 'cabecalho-menu-link button' %>
+        <% else %>
+          <%= link_to 'Login', new_user_session_path, class: 'cabecalho-menu-link' %>
+        <% end %>
       </nav>
     </header>
     <div>
