@@ -6,8 +6,8 @@ describe 'Usuário cadastra prazo de entrega' do
 
         user = User.create!(email: 'lucas@logi.com.br', password: 'password')
         
-        visit root_path
         login_as(user)
+        visit root_path
         click_on 'Prazos de Entrega'
         click_on 'Cadastrar Prazo'
 
@@ -22,8 +22,8 @@ describe 'Usuário cadastra prazo de entrega' do
 
         user = User.create!(email: 'lucas@logi.com.br', password: 'password')
         
-        visit root_path
         login_as(user)
+        visit root_path
         click_on 'Prazos de Entrega'
         click_on 'Cadastrar Prazo'
 

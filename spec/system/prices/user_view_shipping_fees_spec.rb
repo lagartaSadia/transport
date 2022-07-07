@@ -6,8 +6,8 @@ describe 'Usuário acessa a tela de taxas de frete' do
 
         user = User.create!(email: 'lucas@logi.com.br', password: 'password')
         
-        visit root_path
         login_as(user)
+        visit root_path
         click_on 'Taxas de Frete'
 
         expect(page).to have_content 'Lista de Taxas de Frete'
@@ -23,8 +23,8 @@ describe 'Usuário acessa a tela de taxas de frete' do
         
         user = User.create!(email: 'lucas@logi.com.br', password: 'password')
         
-        visit root_path
         login_as(user)
+        visit root_path
         click_on 'Taxas de Frete'
 
         expect(page).to have_content 'Taxas da Logi Transportes'

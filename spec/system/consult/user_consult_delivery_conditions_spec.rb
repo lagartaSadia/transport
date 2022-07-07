@@ -14,8 +14,8 @@ describe 'Usuário consulta condições de entrega' do
         DeliveryTime.create!(first_distance: 0, second_distance: 50, time: 2, carrier: carrier)
         DeliveryTime.create!(first_distance: 50, second_distance: 100, time: 5, carrier: carrier)
 
-        visit root_path
         login_as(user)
+        visit root_path
         click_on 'Consultar Frete'
 
         fill_in 'Dimensão do Item', with: '0.3'
@@ -35,8 +35,8 @@ describe 'Usuário consulta condições de entrega' do
     it 'com campos inválidos' do
         user = User.create!(email: 'lucas@sistemadefrete.com.br', password: 'password')
 
-        visit root_path
         login_as(user)
+        visit root_path
         click_on 'Consultar Frete'
 
         fill_in 'Dimensão do Item', with: '0'

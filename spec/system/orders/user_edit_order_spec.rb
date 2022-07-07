@@ -43,6 +43,7 @@ describe 'Usuário edita uma ordem de pedito' do
 
         click_on 'Atualizar'
 
+        order.reload
         result = order.vehicle_id
 
         expect(page).to have_content 'Status: Aceito'

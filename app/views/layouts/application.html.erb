@@ -18,10 +18,10 @@
           <%= link_to 'Veículos', vehicles_path, class: 'cabecalho-menu-link' %>
           <%= link_to 'Taxas de Frete', prices_path, class: 'cabecalho-menu-link' %>
           <%= link_to 'Prazos de Entrega', delivery_times_path, class: 'cabecalho-menu-link' %>
+          <%= link_to 'Meus Pedidos', orders_path, class: 'cabecalho-menu-link' %>
           <% if current_user.admin? %>
             <%= link_to 'Consultar Frete', new_consult_path, class: 'cabecalho-menu-link' %>
             <%= link_to 'Registrar Pedido', new_order_path, class: 'cabecalho-menu-link' %>
-            <%= link_to 'Meus Pedidos', orders_path, class: 'cabecalho-menu-link' %>
           <% end %>
           <%= button_to 'Sair', destroy_user_session_path, method: :delete, class: 'cabecalho-menu-link button' %>
         <% else %>

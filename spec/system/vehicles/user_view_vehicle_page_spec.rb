@@ -6,8 +6,8 @@ describe 'Usuário visita página de veículos' do
 
         user = User.create!(email: 'lucas@logi.com.br', password: 'password')
 
-        visit root_path
         login_as(user)
+        visit root_path
         click_on 'Veículos'
 
         expect(page).to have_content 'Lista de Veículos'
@@ -21,8 +21,8 @@ describe 'Usuário visita página de veículos' do
 
         user = User.create!(email: 'lucas@rodox.com', password: 'password')
 
-        visit root_path
         login_as(user)
+        visit root_path
         click_on 'Veículos'
 
         expect(page).to have_content 'Veículos da Rodox Logistica'
@@ -41,8 +41,8 @@ describe 'Usuário visita página de veículos' do
 
         user = User.create!(email: 'lucas@rodox.com', password: 'password')
 
-        visit root_path
         login_as(user)
+        visit root_path
         click_on 'Veículos'
         click_on 'DCC8524'
 

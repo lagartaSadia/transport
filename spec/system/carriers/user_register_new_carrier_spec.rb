@@ -4,8 +4,8 @@ describe 'Usuário registra uma nova transportadora' do
     it 'a partir da tela de transportadoras' do
         user = User.create!(email: 'lucas@sistemadefrete.com.br', password: 'password')
 
-        visit root_path
         login_as(user)
+        visit root_path
         click_on 'Transportadoras'
         click_on 'Cadastrar Transportadora'
 
@@ -21,8 +21,8 @@ describe 'Usuário registra uma nova transportadora' do
     it 'com sucesso' do
         user = User.create!(email: 'lucas@sistemadefrete.com.br', password: 'password')
 
-        visit root_path
         login_as(user)
+        visit root_path
         click_on 'Transportadoras'
         click_on 'Cadastrar Transportadora'
 

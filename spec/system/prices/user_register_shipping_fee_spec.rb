@@ -6,8 +6,8 @@ describe 'Usuário registra uma taxa de entrega' do
 
         user = User.create!(email: 'lucas@logi.com.br', password: 'password')
 
-        visit root_path
         login_as(user)
+        visit root_path
         click_on 'Taxas de Frete'
         click_on 'Cadastrar Taxa'
 
@@ -26,8 +26,8 @@ describe 'Usuário registra uma taxa de entrega' do
 
         user = User.create!(email: 'lucas@logi.com.br', password: 'password')
 
-        visit root_path
         login_as(user)
+        visit root_path
         click_on 'Taxas de Frete'
         click_on 'Cadastrar Taxa'
 

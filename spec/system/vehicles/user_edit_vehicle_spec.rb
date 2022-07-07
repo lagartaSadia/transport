@@ -8,8 +8,8 @@ describe 'Usuário edita um veículo' do
 
         user = User.create!(email: 'lucas@logi.com.br', password: 'password')
 
-        visit root_path
         login_as(user)
+        visit root_path
         click_on 'Veículos'
         click_on 'DCC8524'
         click_on 'Editar'
@@ -31,8 +31,8 @@ describe 'Usuário edita um veículo' do
 
         user = User.create!(email: 'lucas@logi.com.br', password: 'password')
 
-        visit root_path
         login_as(user)
+        visit root_path
         click_on 'Veículos'
         click_on 'DCC8524'
         click_on 'Editar'

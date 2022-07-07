@@ -6,8 +6,8 @@ describe 'Usuário registra novo veículo' do
 
         user = User.create!(email: 'lucas@logi.com.br', password: 'password')
 
-        visit root_path
         login_as(user)
+        visit root_path
         click_on 'Veículos'
         click_on 'Cadastrar Veículo'
 
@@ -24,8 +24,8 @@ describe 'Usuário registra novo veículo' do
 
         user = User.create!(email: 'lucas@logi.com.br', password: 'password')
 
-        visit root_path
         login_as(user)
+        visit root_path
         click_on 'Veículos'
         click_on 'Cadastrar Veículo'
 
